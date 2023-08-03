@@ -1,5 +1,5 @@
 # Importing required packages
-# from docx import Document
+from docx import Document
 import streamlit as st
 import openai
 import base64
@@ -23,18 +23,18 @@ def translate_text(text, target_language):
     return information
 
 # Define a function to generate download link for a file
-# def get_download_link(text, file_name):
-#     doc = Document()
-#     doc.add_paragraph(text)
+def get_download_link(text, file_name):
+    doc = Document()
+    doc.add_paragraph(text)
 
-#     # Save the docx document
-#     doc.save(file_name)
+    # Save the docx document
+    doc.save(file_name)
 
-#     with open(file_name, "rb") as file:
-#         data = file.read()
-#     b64_data = base64.b64encode(data).decode()
-#     href = f'<a href="data:application/octet-stream;base64,{b64_data}" download="{file_name}">Download Translated Document</a>'
-#     return href
+    with open(file_name, "rb") as file:
+        data = file.read()
+    b64_data = base64.b64encode(data).decode()
+    href = f'<a href="data:application/octet-stream;base64,{b64_data}" download="{file_name}">Download Translated Document</a>'
+    return href
 
 # Define the main function that sets up the Streamlit UI and handles the translation process
 def main():
@@ -63,9 +63,9 @@ def main():
         st.write(translated_text)
 
         # Create a download link for the translated text in a docx document
-        # file_name = 'translated_text.docx'
-        # download_link = get_download_link(translated_text, file_name)
-        # st.markdown(download_link, unsafe_allow_html=True)
+        file_name = 'translated_text.docx'
+        download_link = get_download_link(translated_text, file_name)
+        st.markdown(download_link, unsafe_allow_html=True)
 
 # Call the main function
 if __name__ == '__main__':
