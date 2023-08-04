@@ -4,8 +4,7 @@ import streamlit as st
 import openai
 import base64
 
-# openai.api_key = "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"
-openai.api_key = "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"
+openai.api_key = st.secrets["API_KEY"]
 
 # Define a function to handle the translation process
 def translate_text(text, target_language):
