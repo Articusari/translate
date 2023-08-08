@@ -8,7 +8,7 @@ openai.api_key = st.secrets["API_KEY"]
 
 # Define a function to handle the translation process
 def translate_text(text, target_language):
-    system_content = 'Ti si senior menadžer proizvoda u IT kompaniji.'
+    system_content = 'You are helpful AI translator'
     user_content = f"Translate '{text}' to {target_language}"
 
     completion = openai.ChatCompletion.create(
